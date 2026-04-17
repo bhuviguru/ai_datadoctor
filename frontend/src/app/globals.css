@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-card: var(--brand-card);
+}
+
+:root {
+  --brand-50: #f0fdfa;
+  --brand-100: #ccfbf1;
+  --brand-200: #99f6e4;
+  --brand-300: #5eead4;
+  --brand-400: #2dd4bf;
+  --brand-500: #0d9488;
+  --brand-600: #0f766e;
+  --brand-700: #115e59;
+  --brand-teal: #0d9488;
+  --brand-bg: #f8fafc;
+  --brand-card: #ffffff;
+}
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Premium Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+}
+
+@layer components {
+  .glass-premium {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  }
+
+  .card-premium {
+    background: white;
+    border-radius: 2rem;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .btn-checkup {
+    background: #1e293b;
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(30, 41, 59, 0.2);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-checkup:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0d9488, #14b8a6);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(13, 148, 136, 0.3);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0d9488, #14b8a6);
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.4);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(13, 148, 136, 0.5);
+    filter: brightness(1.1);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #94a3b8;
+    box-shadow: none;
+  }
+
+  /* High-Intensity Status Markers */
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+  }
+
+  .status-dot-green {
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+  }
+
+  .status-dot-amber {
+    background: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .status-dot-red {
+    background: #f43f5e;
+    box-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Glassmorphism Overlays */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .neon-border-teal {
+    position: relative;
+  }
+
+  .neon-border-teal::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #14b8a6, transparent, #2dd4bf);
+    z-index: -1;
+    opacity: 0.2;
+  }
+
+  .layout-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}

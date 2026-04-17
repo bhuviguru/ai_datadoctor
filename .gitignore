@@ -1,0 +1,16 @@
+# [SURGEON-PRO] Essential Git Exclusion Layer
+node_modules/
+.env
+.DS_Store
+*.log
+.next/
+dist/
+dist-mcp/
+mcp-server/node_modules/
+backend/node_modules/
+frontend/node_modules/
+openmetadata_setup/.git
+openmetadata_setup/.github
+openmetadata_setup/.claude
+.vscode/
+package-lock.json
