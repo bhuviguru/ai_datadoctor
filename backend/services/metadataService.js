@@ -24,7 +24,6 @@ const omClient = axios.create({
  */
 const checkOMConnection = async () => {
   try {
-    console.log(`[OM-CLIENT] Attempting to reach OpenMetadata at ${OM_URL}...`);
     const response = await omClient.get('/system/version');
     console.log(`[OM-CLIENT] Connected to OpenMetadata v${response.data.version}`);
     return true;
