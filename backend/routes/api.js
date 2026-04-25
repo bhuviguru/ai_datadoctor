@@ -3,8 +3,22 @@ const router = express.Router();
 const metadataService = require('../services/metadataService');
 const scanService = require('../services/scanService');
 const aiService = require('../services/aiService');
-const historyService = require('../services/historyService');
 const notificationService = require('../services/notificationService');
+const historyService = require('../services/historyService');
+
+// GET /status/om - Check OpenMetadata Connection Status
+router.get('/status/om', async (req, res) => {
+  try {
+    const status = await metadataService.checkOMConnection();
+    res.json({
+       enabled: process.env.ENABLE_OM === 'true',
+       url: process.env.OM_URL,
+       ...status
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // GET /tables - Fetch all tables
 router.get('/tables', async (req, res) => {
